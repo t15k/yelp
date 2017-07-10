@@ -1,0 +1,6 @@
+var tdf = spark.read.table("tip")
+var bdf = spark.read.table("business")
+
+var df = tdf.groupBy("business_id").count.orderBy($"count".desc)
+df.join(bdf, "business_id").select("name", "city", "count").show 
+

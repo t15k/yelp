@@ -1,0 +1,6 @@
+var bdf = spark.read.table("business")
+var cdf = spark.read.table("checkin")
+    
+cdf.select("business_id", "time").filter(r => r(1).asInstanceOf[Seq[String]].filter(e => e.contains("Sun-")).size > 0 ).join(bdf, "business_id").select("name", "city").show
+
+

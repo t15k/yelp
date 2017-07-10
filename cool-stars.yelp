@@ -1,0 +1,9 @@
+var udf = spark.read.table("user")
+var rdf = spark.read.table("review")
+
+var totalRdf = udf.select(sum($"compliment_cool")).first()(0)
+var ratioRdf = rdf.groupBy(rdf("user_id")).agg(sum($"stars"), format_number(sum($"stars") / totalRdf, 8) as "stars_ratio")
+var totalUdf = rdf.select(sum($"stars")).first()(0)
+var ratioUdf = udf.groupBy(udf("user_id")).agg(sum($"compliment_cool"), format_number(sum($"compliment_cool") / totalUdf, 8) as "compliment_cool_ratio")
+ratioUdf.join(ratioRdf, "user_id").orderBy($"compliment_cool_ratio".desc).show
+

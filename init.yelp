@@ -1,0 +1,11 @@
+spark.read.json("/data/yelp_academic_dataset_review.json").write.saveAsTable("review")
+
+spark.read.json("/data/yelp_academic_dataset_checkin.json").write.saveAsTable("checkin")
+
+spark.read.json("/data/yelp_academic_dataset_tip.json").write.saveAsTable("tip")
+
+spark.read.json("/data/yelp_academic_dataset_user.json").write.saveAsTable("user")
+
+spark.read.json("/data/yelp_academic_dataset_business.json").write.saveAsTable("business")
+
+

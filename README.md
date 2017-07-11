@@ -6,7 +6,7 @@ It does not take the the Yelp tar ball as a parameter, but expect the dataset to
 available in a directory mounted on /data (will be demonstrated shortly).
 
 ## Getting the data
-The Yelp data is not part of this repository. Go to https://www.yelp.com/dataset\_challenge/dataset,
+The Yelp data is not part of this repository. Go to https://www.yelp.com/dataset_challenge/dataset,
 fill out the form and download the bundle. I put my bundle (unpacked )in /var/yelp,
 to make it available for the Docker container. If you put it in a different location, please
 make sure to update the path in the docker run command below.

@@ -1,17 +1,17 @@
 # Yelp academic data on Spark
 
 This is a Docker setup for bootstraping a Spark environment for querying the Yelp
-academic dataset (excluding the photofile).
+academic dataset (excluding the photo file).
 It does not take the the Yelp tar ball as a parameter, but expect the dataset to be
 available in a directory mounted on /data (will be demonstrated shortly).
 
 ## Getting the data
-The Yelp data is not part of this repository. Go to [https://www.yelp.com/dataset\_challenge/dataset],
+The Yelp data is not part of this repository. Go to https://www.yelp.com/dataset\_challenge/dataset,
 fill out the form and download the bundle. I put my bundle (unpacked )in /var/yelp,
 to make it available for the Docker container. If you put it in a different location, please
-make sure to update the path in docker run command below.
+make sure to update the path in the docker run command below.
 
-    # unpacking and storing in location to be mounted on the Docker container.
+    # unpacking and storing in a location to be mounted on the Docker container.
     > mkdir -p /var/yelp
     > mv yelp_dataset_challenge_round9.tgz /var/yelp
     > cd /var/yelp 
@@ -25,7 +25,7 @@ At the root of this project do.
 
 ## Running the docker image
 
-To run an instance of the image created do:
+To run an instance of the image created, do:
 
     > docker run -ti --rm -v /var/yelp:/data yelp
 
